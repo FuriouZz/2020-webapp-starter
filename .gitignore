@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+public
+tmp
+config/environments/*.yml
+!config/environments/.gitkeep
+config/locales/*
+!config/locales/.gitkeep
+config/datas/*
+!config/datas/settings.yml
+!config/datas/.gitkeep
+build
+
+app/scripts/data/aws-exports.ts

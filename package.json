@@ -1,0 +1,52 @@
+{
+  "name": "webapp-starter-2020",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "config": "tsc -p config/tsconfig.json",
+    "dev": "npm run config && webpack --config tmp/build.js",
+    "dev:server": "npm run config && webpack-dev-server --config tmp/build.js",
+    "task": "npm run config && node tmp/tasks.js",
+    "locale": "npm run task -- locale",
+    "build:staging": "npm run locale -- --env.environment='staging' && webpack --config tmp/build.js --env.environment='staging'",
+    "build:ios": "npm run locale -- --env.environment='ios' && webpack --config tmp/build.js --env.environment='ios'",
+    "build:android": "npm run locale -- --env.environment='android' && webpack --config tmp/build.js --env.environment='android'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-amplify/api": "^2.1.3",
+    "@aws-amplify/auth": "^2.1.3",
+    "@aws-amplify/cache": "^2.1.3",
+    "@aws-amplify/core": "^2.2.2",
+    "@aws-amplify/storage": "^2.1.3",
+    "animejs": "3.0.1",
+    "escape-string-regexp": "^2.0.0",
+    "gl-matrix": "3.0.0",
+    "js-yaml": "3.13.1",
+    "kramed": "^0.5.6",
+    "lodash.template": "4.4.0",
+    "lol": "github:wk-js/lol.js#0.0.9"
+  },
+  "devDependencies": {
+    "@types/airtable": "^0.5.6",
+    "@types/lodash.template": "4.4.6",
+    "@types/node": "12.0.12",
+    "@types/stylus": "0.48.31",
+    "@types/webpack": "4.4.34",
+    "@types/webpack-dev-server": "3.1.6",
+    "airtable": "^0.7.2",
+    "asset-pipeline": "github:wk-js/asset-pipeline#5557846aa428203b4e95b5f4ae44c7d2fdd5aaa1",
+    "extract-loader": "3.1.0",
+    "file-loader": "4.0.0",
+    "front-matter": "3.0.1",
+    "raw-loader": "0.5.1",
+    "stylus": "0.54.5",
+    "stylus-loader": "3.0.2",
+    "ts-loader": "5.4.5",
+    "typescript": "3.5.2",
+    "webpack": "4.35.2",
+    "webpack-cli": "3.3.8",
+    "webpack-dev-server": "3.7.2"
+  }
+}

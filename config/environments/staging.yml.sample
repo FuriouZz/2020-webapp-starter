@@ -1,0 +1,28 @@
+# Extend another environment file
+extend: development.yml
+
+# Enable watch mode
+watch: false
+
+# Reload page on change
+reload: false
+
+# Enable js/css compress
+compress: true
+
+# Build output
+output: build/staging
+
+# Host prefix (take care to end your path with your slash "/")
+host: MY_HOST
+
+# deploy configuration
+deploy:
+  profile: default
+  region: eu-west-1
+  debug: false
+  bucket: MY_BUCKET
+  input: ${output}
+  # cloudfront:
+  #   distribution_id: MY_DISTRIBUTION_ID
+  #   paths: [ '"/\*"' ]

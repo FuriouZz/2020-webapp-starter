@@ -1,0 +1,36 @@
+# See WKEnv definition here: config/workflow/types.d.ts
+
+# Enable watch mode
+watch: true
+
+# Reload page on change
+reload: true
+
+# Enable js/css compress
+compress: false
+
+# Enable cache-break
+cache: false
+
+# Build output
+output: public
+
+# Host prefix (take care to end your path with your slash "/")
+host: ''
+
+# HTTPS
+https: false
+
+# i18n configuration
+i18n:
+  # airtable prerequisites
+  apiKey: MY_AIRTABLE_API_KEY
+  appId: MY_AIRTABLE_APP_ID
+  tab: i18n
+  view: All
+
+  # Locale output file
+  output: config/datas/i18n.json
+
+  # Force fetching locales on airtable
+  fetch: false
