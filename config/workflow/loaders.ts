@@ -12,7 +12,7 @@ export function file_rule(w: Configuration, config: WKConfig) : RuleSetRule {
     include: w.context,
 
     test(resourcePath: string) {
-      if (resourcePath.match(/\.(ts|js|styl)/)) return false
+      if (resourcePath.match(/\.(ts|js|styl)$/)) return false
       const path = config.assets.resolve.parse(resourcePath)
       if (!path.source) return false
       return config.assets.manifest.has(path.key)

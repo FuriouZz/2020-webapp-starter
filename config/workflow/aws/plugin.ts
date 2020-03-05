@@ -1,7 +1,6 @@
-import * as Fs from 'fs';
-import * as Path from 'path';
 import { DeployOptions } from './types';
 import { deploy, invalidate_paths } from './deploy';
+import { Compiler } from 'webpack'
 
 export class AWSDeployPlugin {
 
@@ -10,7 +9,7 @@ export class AWSDeployPlugin {
     this.deploy = this.deploy.bind(this)
   }
 
-  apply(compiler: any) {
+  apply(compiler: Compiler) {
     compiler.hooks.done.tap('aws-deploy', this.deploy)
   }
 

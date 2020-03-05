@@ -2,6 +2,7 @@ import { WKConfig } from "./types";
 import { Configuration } from "webpack";
 import { raw_rule, ejs_rule, styl_rule, ts_rule, file_rule, mjs_rule } from "./loaders";
 import { AWSDeployPlugin } from "./aws/plugin";
+import { DataPlugin } from "./data-plugin";
 
 /**
  * Return a webpack configuration based on your config
@@ -163,6 +164,7 @@ export function optimization(w: Configuration, config: WKConfig) {
  */
 export function plugins(w: Configuration, config: WKConfig) {
   w.plugins = []
+  w.plugins.push(new DataPlugin(config))
 }
 
 /**
