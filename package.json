@@ -8,9 +8,7 @@
     "dev:server": "npm run config && webpack-dev-server --config tmp/build.js",
     "task": "npm run config && node tmp/tasks.js",
     "locale": "npm run task -- locale",
-    "build:staging": "npm run locale -- --env.environment='staging' && webpack --config tmp/build.js --env.environment='staging'",
-    "build:ios": "npm run locale -- --env.environment='ios' && webpack --config tmp/build.js --env.environment='ios'",
-    "build:android": "npm run locale -- --env.environment='android' && webpack --config tmp/build.js --env.environment='android'"
+    "build:staging": "npm run locale -- --env.environment='staging' && webpack --config tmp/build.js --env.environment='staging'"
   },
   "author": "",
   "license": "ISC",

@@ -6,9 +6,8 @@ config/environments/*.yml
 !config/environments/.gitkeep
 config/locales/*
 !config/locales/.gitkeep
-config/datas/*
-!config/datas/settings.yml
-!config/datas/.gitkeep
+config/data/*
+!config/data/.gitkeep
+app/scripts/data/*
+!app/scripts/data/.gitkeep
 build
-
-app/scripts/data/aws-exports.ts
