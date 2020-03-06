@@ -30,7 +30,7 @@ i18n:
   view: All
 
   # Locale output file
-  output: config/datas/i18n.json
+  output: config/data/i18n.json
 
   # Force fetching locales on airtable
   fetch: false
