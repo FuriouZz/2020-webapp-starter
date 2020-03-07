@@ -3,6 +3,7 @@ import { Configuration } from "webpack";
 import { raw_rule, ejs_rule, styl_rule, ts_rule, file_rule, mjs_rule } from "./loaders";
 import { AWSDeployPlugin } from "./aws/plugin";
 import { DataPlugin } from "./data-plugin";
+import * as Path from "path";
 
 /**
  * Return a webpack configuration based on your config
@@ -29,6 +30,7 @@ export async function Webpack(config: WKConfig, block?: (w: Configuration, confi
 export function misc(w: Configuration, config: WKConfig) {
   w.mode = "production"
   w.context = config.assets.source.all(true)[0]
+  w.context = Path.normalize(w.context)
   w.watch = config.watch
   w.target = "web"
 
@@ -72,7 +74,7 @@ export function entries(w: Configuration, config: WKConfig) {
  */
 export function output(w: Configuration, config: WKConfig) {
   w.output = {}
-  w.output.path = config.assets.resolve.output_with('./')
+  w.output.path = Path.normalize(config.assets.resolve.output_with('./'))
   w.output.filename = '[name]'
   w.output.chunkFilename = '[name].chunk.js'
 }
