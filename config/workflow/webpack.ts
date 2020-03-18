@@ -30,6 +30,10 @@ export function misc(w: Configuration, config: WKConfig) {
   w.mode = "production"
   w.context = config.assets.source.all(true)[0]
   w.watch = config.watch
+  w.watchOptions = {
+    poll: true,
+    ignored: [ /PAGE\.ts/ ],
+  }
   w.target = "web"
 
   if (!config.compress) {
@@ -91,7 +95,8 @@ export function server(w: Configuration, config: WKConfig) {
     inline: config.reload,
     watchContentBase: config.watch,
     watchOptions: {
-      poll: true
+      poll: true,
+      ignored: [ /PAGE\.ts/ ],
     },
     headers: {
       'Access-Control-Allow-Origin': '*',

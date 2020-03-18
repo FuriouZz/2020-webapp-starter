@@ -1,3 +1,5 @@
+import { PAGE } from "data/PAGE"
+
 async function main() {
   // Transformers (see: config/workflow/transformer.ts)
 
@@ -17,6 +19,9 @@ async function main() {
 
   // Print all EJS variables
   console.log("GLOBAL_OBJECT:", JSON.parse("@ejs: JSON.stringify(global)"))
+
+  // Alternatively, import PAGE.ts
+  console.log(PAGE)
 }
 
 window.addEventListener('DOMContentLoaded', main)

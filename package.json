@@ -7,8 +7,8 @@
     "dev": "npm run config && webpack --config tmp/build.js",
     "dev:server": "npm run config && webpack-dev-server --config tmp/build.js",
     "task": "npm run config && node tmp/tasks.js",
-    "locale": "npm run task -- locale",
-    "build:staging": "npm run locale -- --env.environment='staging' && webpack --config tmp/build.js --env.environment='staging'"
+    "locale": "npm run config && npm run task -- locale",
+    "build:staging": "npm run config && npm run locale -- --env.environment='staging' && webpack --config tmp/build.js --env.environment='staging'"
   },
   "author": "",
   "license": "ISC",
@@ -34,7 +34,7 @@
     "@types/webpack": "4.4.34",
     "@types/webpack-dev-server": "3.1.6",
     "airtable": "^0.7.2",
-    "asset-pipeline": "github:wk-js/asset-pipeline#5557846aa428203b4e95b5f4ae44c7d2fdd5aaa1",
+    "asset-pipeline": "github:wk-js/asset-pipeline#561c0fb89731a7bc503a29c76a63da797628bde6",
     "extract-loader": "3.1.0",
     "file-loader": "4.0.0",
     "front-matter": "3.0.1",

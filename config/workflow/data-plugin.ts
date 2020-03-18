@@ -11,11 +11,17 @@ export class DataPlugin {
   }
 
   apply(compiler: Compiler) {
-    compiler.hooks.done.tap('data-generate', this.generate)
+    compiler.hooks.beforeCompile.tap('data-generate', this.generate)
   }
 
   async generate() {
     const data = this.config.ejs.data || {}
+
+    await this.config.assets.fetch(true)
+
+    // @ts-ignore
+    data.global.assets = this.config.assets.manifest.all_outputs_by_key()
+
     await writeFile(`export const PAGE = ${JSON.stringify(data, null, 2)}`, join(this.config.assets.source.all(true)[0], 'scripts/data/PAGE.ts'))
   }
 
