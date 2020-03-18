@@ -13,11 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-amplify/api": "^2.1.3",
-    "@aws-amplify/auth": "^2.1.3",
-    "@aws-amplify/cache": "^2.1.3",
-    "@aws-amplify/core": "^2.2.2",
-    "@aws-amplify/storage": "^2.1.3",
     "animejs": "3.0.1",
     "escape-string-regexp": "^2.0.0",
     "gl-matrix": "3.0.0",
