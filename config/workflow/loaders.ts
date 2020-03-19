@@ -2,6 +2,7 @@ import { Configuration, RuleSetRule } from "webpack";
 import { WKConfig } from "./types";
 import { TransformersFactory } from "./transformer";
 import { StylusPluginFactory } from "./stylus-plugin";
+import { NO_FILE_EXTRACT_REG, STYL_REG, TS_REG, EJS_REG, RAW_REG, MJS_REG } from "./regex";
 
 /**
  * Use this rule if you want to emit a single file.
@@ -12,7 +13,7 @@ export function file_rule(w: Configuration, config: WKConfig) : RuleSetRule {
     include: w.context,
 
     test(resourcePath: string) {
-      if (resourcePath.match(/\.(ts|js|styl)$/)) return false
+      if (resourcePath.match(NO_FILE_EXTRACT_REG)) return false
       const path = config.assets.resolve.parse(resourcePath)
       if (!path.source) return false
       return config.assets.manifest.has(path.key)
@@ -41,7 +42,7 @@ export function styl_rule(w: Configuration, config: WKConfig) : RuleSetRule {
   const file = file_rule(w, config)
 
   return {
-    test: /\.styl$/,
+    test: STYL_REG,
     include: w.context,
     use: [
       file.use[0],
@@ -68,7 +69,7 @@ export function styl_rule(w: Configuration, config: WKConfig) : RuleSetRule {
  */
 export function ts_rule(w: Configuration, config: WKConfig) : RuleSetRule {
   return {
-    test: /\.(ts|js)(\.ejs)?$/,
+    test: TS_REG,
     include: w.context,
     use: [
       {
@@ -86,7 +87,7 @@ export function ts_rule(w: Configuration, config: WKConfig) : RuleSetRule {
  */
 export function ejs_rule(w: Configuration, config: WKConfig) : RuleSetRule {
   return {
-    test: /\.ejs$/,
+    test: EJS_REG,
     enforce: 'pre',
     include: w.context,
     use: [
@@ -103,7 +104,7 @@ export function ejs_rule(w: Configuration, config: WKConfig) : RuleSetRule {
  */
 export function raw_rule(w: Configuration, config: WKConfig): RuleSetRule {
   return {
-    test: /\.(html|svg|vert|frag|glsl)$/,
+    test: RAW_REG,
     include: w.context,
     use: ['raw-loader']
   }
@@ -114,7 +115,7 @@ export function raw_rule(w: Configuration, config: WKConfig): RuleSetRule {
  */
 export function mjs_rule(w: Configuration, config: WKConfig): RuleSetRule {
   return {
-    test: /\.mjs$/,
+    test: MJS_REG,
     include: /node_modules/,
     type: "javascript/auto"
   }
