@@ -5,7 +5,7 @@
 * AssetPipeline v2#99f3f6b9373799bee0230a7f25b1bc2f91d0beb0
 * lol.js 0.0.9
 
-# Changes
+## Changes
 
 * Every Non-JS/TS entries are bundled into `bundle.js` and extracted with `extract-loader`
 * No longer use `vendors.js`, now use `import()`. See [main.ts#L5](main.ts#L5)
