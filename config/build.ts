@@ -55,7 +55,7 @@ export default async function main(options: WKEnv = { environment: 'development'
   assets.source.add('app')
 
   /**
-   * Add entry points
+   * Add entry points, must have the tag `entry`
    */
   assets.file.add(`scripts/main.ts`, { tag: 'entry', output: '#{output.name}.js', cache: '#{output.name}-#{output.hash}.js' })
   assets.file.add(`styles/main.styl`, { tag: 'entry', output: '#{output.name}.css', cache: '#{output.name}-#{output.hash}.css' })
@@ -63,21 +63,21 @@ export default async function main(options: WKEnv = { environment: 'development'
   assets.file.add(`views/**/*.html.ejs`, { tag: 'entry', output: html_output, cache: false })
 
   /**
-   * Add assets
+   * Add assets, must have the tag `entry`
    */
   assets.file.add('assets/**/*' , { tag: 'asset' })
 
   /**
-   * Add non-existing files to the manifest
-   * With webpack, every entrypoints are grouped into bundle.js
-   * and every vendors/node_modules are separated to vendor.js
+   * Shadow add non-existing files to the manifest
+   * With webpack, every non-js/ts entrypoints are grouped into bundle.js
    */
   assets.file.shadow('bundle.js', { tag: 'bundle' })
 
   /**
    * Collect list of files and generate "./tmp/manifest-assets.json"
+   * Force to refetch files
    */
-  await assets.fetch()
+  await assets.fetch(true)
 
   /**
    * Copy every files on assets to the output
