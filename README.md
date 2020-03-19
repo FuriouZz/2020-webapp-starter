@@ -1,9 +1,18 @@
 # 2020-webapp-starter <!-- omit in toc -->
 
-Typescript 3.5.2
-Webpack 4.35.2
-AssetPipeline v2
-lol.js 0.0.9
+* Typescript 3.5.2
+* Webpack 4.35.2
+* AssetPipeline v2#99f3f6b9373799bee0230a7f25b1bc2f91d0beb0
+* lol.js 0.0.9
+
+# Changes
+
+* Every Non-JS/TS entries are bundled into `bundle.js` and extracted with `extract-loader`
+* No longer use `vendors.js`, now use `import()`. See [main.ts](main.ts#L18)
+* Deprecate support of `.ejs` file, now use `@ejs:` transform or `app/scripts/data/PAGE.ts`. See [main.ts#L18](app/scripts/main.ts#L18)
+* `app/scripts/data/PAGE.ts` is now generated on fly and updated at each file changes.
+* Assets manifest is now updated at `app/**/*` changes, no longer need to restart a webpack compilation
+* Support execution on environment Powershell
 
 ## Setup
 
