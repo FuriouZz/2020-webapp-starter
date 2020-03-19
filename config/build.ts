@@ -73,7 +73,6 @@ export default async function main(options: WKEnv = { environment: 'development'
    * and every vendors/node_modules are separated to vendor.js
    */
   assets.file.shadow('bundle.js', { tag: 'bundle' })
-  assets.file.shadow('vendor.js')
 
   /**
    * Collect list of files and generate "./tmp/manifest-assets.json"

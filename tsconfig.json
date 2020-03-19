@@ -13,7 +13,6 @@
     "paths": {
       "*": [
         "app/scripts/*",
-        "app/vendors/*"
       ]
     },
     "typeRoots": [
@@ -23,5 +22,5 @@
     "resolveJsonModule": true,
     "downlevelIteration": true
   },
-  "exclude": [ "./tmp", "./config", "./public", "./build", "./app/vendors" ]
+  "exclude": [ "./tmp", "./config", "./public", "./build" ]
 }

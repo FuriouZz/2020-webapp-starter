@@ -158,17 +158,6 @@ export function optimization(w: Configuration, config: WKConfig) {
   if (config.compress) {
     w.optimization.minimize = true
   }
-
-  console.log('[TODO] Split chunks only on production mode')
-  w.optimization.splitChunks = {
-    cacheGroups: {
-      vendor: {
-        chunks: 'all',
-        test: /node_modules|app\/vendors/,
-        filename: config.assets.resolve.path('vendor.js')
-      }
-    }
-  }
 }
 
 /**
