@@ -7,7 +7,9 @@ lol.js 0.0.9
 
 ## Setup
 
-* Rename `config/environments/development.yml.sample` into `config/environments/development.yml`
+<!-- * Rename `config/environments/development.yml.sample` into `config/environments/development.yml`
+* Edit the file at your convenience -->
+* Duplicate `.env.sample` into `.env` or `.env.{environement}`
 * Edit the file at your convenience
 * `npm i` to install dependencies
 * `npm run locale`

@@ -66,6 +66,10 @@ function format(data: any) {
  * Fetch locales to Airtables grouped by locale
  */
 export async function fetch(options: I18nFetchOptions) : Promise<I18nData> {
+  if(options.apiKey === undefined || options.apiKey === ""){
+    console.log('[i18n] No airtable api key');
+    return {};
+  }
   const table = new Airtable({ apiKey: options.apiKey }).base(options.appId)
 
   options.ignoreFields = Array.isArray(options.ignoreFields) ? options.ignoreFields : [ 'ID', 'key', 'description', 'category' ]

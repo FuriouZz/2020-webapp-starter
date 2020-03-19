@@ -1,0 +1,34 @@
+# Enable watch mode
+watch: false
+
+# build html file
+html: true
+
+# Reload page on change
+reload: false
+
+# Enable js/css compress
+compress: true
+
+# Build output
+output: build/production
+
+# Host prefix (take care to end your path with your slash "/")
+host: ENV["FRONT_WK_ASSET_HOST"]
+
+# HTTPS
+https: false
+
+# i18n configuration
+i18n:
+  # airtable prerequisites
+  apiKey: ENV["AIRTABLE_APIKEY"]
+  appId: ENV["AIRTABLE_APPID"]
+  tab: ENV["AIRTABLE_TAB"]
+  view: ENV["AIRTABLE_VIEW"]
+
+  # Locale output file
+  output: config/data/i18n.json
+
+  # Force fetching locales on airtable
+  fetch: false

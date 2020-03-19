@@ -59,8 +59,11 @@ export default async function main(options: WKEnv = { environment: 'development'
    */
   assets.file.add(`scripts/main.ts`, { tag: 'entry', output: '#{output.name}.js', cache: '#{output.name}-#{output.hash}.js' })
   assets.file.add(`styles/main.styl`, { tag: 'entry', output: '#{output.name}.css', cache: '#{output.name}-#{output.hash}.css' })
-  assets.file.ignore(`views/**/_*.html.ejs`) // Ignore underscore files
-  assets.file.add(`views/**/*.html.ejs`, { tag: 'entry', output: html_output, cache: false })
+
+  if (options.html) {
+    assets.file.ignore(`views/**/_*.html.ejs`) // Ignore underscore files
+    assets.file.add(`views/**/*.html.ejs`, { tag: 'entry', output: html_output, cache: false })
+  }
 
   /**
    * Add assets

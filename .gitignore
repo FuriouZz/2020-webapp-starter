@@ -2,8 +2,6 @@
 node_modules/
 public
 tmp
-config/environments/*.yml
-!config/environments/.gitkeep
 config/locales/*
 !config/locales/.gitkeep
 config/data/*
@@ -11,3 +9,6 @@ config/data/*
 app/scripts/data/*
 !app/scripts/data/.gitkeep
 build
+.env
+.env.*
+!.env.sample

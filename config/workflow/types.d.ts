@@ -16,6 +16,7 @@ export interface WKConfig {
 
 export interface WKEnv {
   environment?: string
+  html?: boolean
   watch?: boolean
   reload?: boolean
   compress?: boolean
