@@ -12,7 +12,7 @@
 * Deprecate support of `.ejs` file, now use `@ejs:` transform or `app/scripts/data/PAGE.ts`. See [main.ts#L18](app/scripts/main.ts#L18)
 * `app/scripts/data/PAGE.ts` is now generated on fly and updated at each file changes.
 * Assets manifest is now updated at `app/**/*` changes, no longer need to restart a webpack compilation
-* Support execution on environment Powershell
+* Support execution on Powershell environment
 
 ## Setup
 
