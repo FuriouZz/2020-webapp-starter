@@ -77,18 +77,7 @@ export function parse(config: WKEnv = { environment: 'development' }, callback?:
   let dotenvpath = Path.resolve(process.cwd(), '.env.' + config.environment);
   if (!Fs.existsSync(dotenvpath))
     dotenvpath = Path.resolve(process.cwd(), ".env");
-  // console.log("=======");
-  // console.log(Fs.existsSync(path));
-  // console.log("=======");
-  // try {
-  //   if (!Fs.existsSync(path)) {
 
-  //   }
-  // } catch (err) {
-  //   console.log("err ============");
-  //   console.log(err);
-  //   path = Path.resolve(process.cwd(), ".env");
-  // }
   dotenv.config({ path: dotenvpath });
 
   const environment = config.environment = config.environment || 'development'

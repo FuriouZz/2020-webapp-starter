@@ -2,6 +2,7 @@ import ts from "typescript";
 import { WKConfig } from "./types";
 import Fs from "fs";
 import { render_template } from "./ejs-loader";
+import { TRANSFORM_REGEX } from "./regex";
 
 /**
  * [WIP] Experiment the possibility to resolve path or read text file on fly via Typescript transformer
@@ -18,12 +19,7 @@ export function TransformersFactory(config: WKConfig) {
 
 function CommonFactory(config: WKConfig, program: ts.Program) {
 
-  const regex = {
-    read: { match: /^@read:/, replace: /^@read:/g },
-    asset_path: { match: /^@asset_path:/, replace: /^@asset_path:/g },
-    asset_url: { match: /^@asset_url:/, replace: /^@asset_url:/g },
-    ejs: { match: /^@ejs:/, replace: /^@ejs:/g }
-  }
+  const regex = TRANSFORM_REGEX
 
   const files = {}
 

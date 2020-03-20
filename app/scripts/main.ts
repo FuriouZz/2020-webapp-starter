@@ -1,6 +1,9 @@
 import { PAGE } from "data/PAGE"
 
 async function main() {
+  // Load vendors
+  await import('vendors/BrowserDetect.js')
+
   // Transformers (see: config/workflow/transformer.ts)
 
   // Get asset path, give relative path

@@ -4,6 +4,7 @@ import { raw_rule, ejs_rule, styl_rule, ts_rule, file_rule, mjs_rule } from "./l
 import { AWSDeployPlugin } from "./aws/plugin";
 import { DataPlugin } from "./data-plugin";
 import * as Path from "path";
+import { TS_REG } from "./regex";
 
 /**
  * Return a webpack configuration based on your config
@@ -47,7 +48,7 @@ export function misc(w: Configuration, config: WKConfig) {
 
 /**
  * Add webpack.entry.
- * Non-JS/TS file are pushed into an entry point "no.js"
+ * Non-JS/TS file are pushed into an entry point "bundle.js"
  */
 export function entries(w: Configuration, config: WKConfig) {
   w.entry = function () {
@@ -64,9 +65,13 @@ export function entries(w: Configuration, config: WKConfig) {
         return asset.rule.tag == 'entry'
       })
       .forEach((asset) => {
-        const output = p.resolve.path(input)
-        entry[output] = entry[output] || []
-        entry[output].push('./' + asset.input)
+        if (TS_REG.test(Path.extname(asset.input))) {
+          entry[asset.output] = './' + asset.input
+        } else {
+          const output = p.resolve.path(input)
+          entry[output] = entry[output] || []
+          entry[output].push('./' + asset.input)
+        }
       })
 
     return entry
@@ -152,17 +157,6 @@ export function optimization(w: Configuration, config: WKConfig) {
 
   if (config.compress) {
     w.optimization.minimize = true
-  }
-
-  console.log('[TODO] Split chunks only on production mode')
-  w.optimization.splitChunks = {
-    cacheGroups: {
-      vendor: {
-        chunks: 'all',
-        test: /node_modules|app\/vendors/,
-        filename: config.assets.resolve.path('vendor.js')
-      }
-    }
   }
 }
 

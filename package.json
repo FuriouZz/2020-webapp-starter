@@ -30,7 +30,7 @@
     "@types/webpack": "4.4.34",
     "@types/webpack-dev-server": "3.1.6",
     "airtable": "^0.7.2",
-    "asset-pipeline": "github:wk-js/asset-pipeline#561c0fb89731a7bc503a29c76a63da797628bde6",
+    "asset-pipeline": "github:wk-js/asset-pipeline#99f3f6b9373799bee0230a7f25b1bc2f91d0beb0",
     "dotenv": "^8.2.0",
     "extract-loader": "3.1.0",
     "file-loader": "4.0.0",
