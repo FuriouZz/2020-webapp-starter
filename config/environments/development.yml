@@ -17,7 +17,7 @@ cache: false
 output: public
 
 # Host prefix (take care to end your path with your slash "/")
-host: ENV["FRONT_WK_ASSET_HOST"]
+host: <%= ENV["FRONT_WK_ASSET_HOST"] %>
 
 # HTTPS
 https: false
@@ -25,10 +25,10 @@ https: false
 # i18n configuration
 i18n:
   # airtable prerequisites
-  apiKey: ENV["AIRTABLE_APIKEY"]
-  appId: ENV["AIRTABLE_APPID"]
-  tab: ENV["AIRTABLE_TAB"]
-  view: ENV["AIRTABLE_VIEW"]
+  apiKey: <%= ENV["AIRTABLE_APIKEY"] %>
+  appId: <%= ENV["AIRTABLE_APPID"] %>
+  tab: <%= ENV["AIRTABLE_TAB"] %>
+  view: <%= ENV["AIRTABLE_VIEW"] %>
 
   # Locale output file
   output: config/data/i18n.json
