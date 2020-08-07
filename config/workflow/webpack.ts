@@ -175,14 +175,16 @@ export function ejs_helpers(w: Configuration, config: WKConfig) {
   config.ejs.helpers = config.ejs.helpers || {}
 
   config.ejs.helpers.asset_path = function () {
+    const source_path = this.context.resourcePath
     return function (path: string, from?: string) {
-      return config.assets.resolve.path(path, from)
+      return config.assets.resolve.path(path, from || source_path)
     }
   }
 
   config.ejs.helpers.asset_url = function () {
+    const source_path = this.context.resourcePath
     return function (path: string, from?: string) {
-      return config.assets.resolve.url(path, from)
+      return config.assets.resolve.url(path, from || source_path)
     }
   }
 }
